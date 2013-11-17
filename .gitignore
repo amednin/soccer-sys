@@ -1,0 +1,26 @@
+/nbproject/private/
+# -- Symfony2 -----------------------------------------
+app/bootstrap.php.cache
+app/bootstrap_cache.php.cache
+app/config/parameters.ini
+app/config/parameters.yml
+app/cache/*
+app/logs/*
+vendor/*
+web/bundles/*
+web/css/*
+web/js/*
+web/uploads/*
+
+composer.phar
+
+app/phpunit.xml 
+
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+
+
