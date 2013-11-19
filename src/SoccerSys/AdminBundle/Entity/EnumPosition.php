@@ -1,14 +1,14 @@
 <?php
 
-namespace SoccerSys\AdminBundle\Entity;
+namespace SoccerSys\FrontendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="team")
+ * @ORM\Table(name="enum_position")
  */
-class Team 
+class EnumPosition 
 {
   /**
    * @ORM\Column(type="integer")
@@ -16,11 +16,11 @@ class Team
    * @ORM\GeneratedValue(strategy="AUTO")
    */
   protected $id;
-
+  
   /**
    * @ORM\Column(type="string", length=100)
    */
-  protected $name;
+  protected $position;
   
   /**
    * @ORM\Column(type="text")
@@ -28,11 +28,9 @@ class Team
   protected $description;
   
   /**
-   * @ORM\OneToMany(targetEntity="Player", mappedBy="team")
-   */
+   * @ORM\OneToMany(targetEntity="SoccerSys\FrontendBundle\Entity\Player", mappedBy="team")
+   **/
   protected $players;
-  
-  protected $pimp;
 }
 
 ?>
