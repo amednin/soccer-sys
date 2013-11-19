@@ -1,0 +1,3 @@
+soccer_sys_frontend_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: SoccerSysFrontendBundle:Default:index }

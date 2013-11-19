@@ -1,0 +1,8 @@
+soccer_sys_frontend:
+    resource: "@SoccerSysFrontendBundle/Resources/config/routing.yml"
+    prefix:   /
+
+soccer_sys_admin:
+    resource: "@SoccerSysAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
