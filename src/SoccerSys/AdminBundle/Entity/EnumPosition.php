@@ -31,6 +31,11 @@ class EnumPosition
    * @ORM\OneToMany(targetEntity="SoccerSys\FrontendBundle\Entity\Player", mappedBy="team")
    **/
   protected $players;
+  
+  /**
+   * @ORM\OneToMany(targetEntity="SoccerSys\FrontendBundle\Entity\Player", mappedBy="team")
+   **/
+  protected $pimps;
 }
 
 ?>

@@ -5,12 +5,12 @@ namespace SoccerSys\AdminBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Description of Player
- *
- * @author amed
+ * @ORM\Entity
+ * @ORM\Table(name="player")
  */
 class Player 
 {
+  
   /**
    * @ORM\Column(type="integer")
    * @ORM\Id
