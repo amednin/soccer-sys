@@ -1,6 +1,6 @@
 <?php
 
-namespace SoccerSys\AdminBundle\Entity;
+namespace SoccerSys\FrontendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -29,21 +29,144 @@ class Player
   protected $lastName;    
   
   /**
-   * @ORM\Column(name="last_name", type="string", length=100)
+   * @ORM\Column(name="number", type="string", length=100)
    */
   protected $number;
   
   /**
-   * @ManyToOne(targetEntity="Team", inversedBy="players")
-   * @JoinColumn(name="team_id", referencedColumnName="id")
+   * @ORM\ManyToOne(targetEntity="Team", inversedBy="players")
+   * @ORM\JoinColumn(name="team_id", referencedColumnName="id")
    */
   protected $team;
   
   /**
-   * @ManyToOne(targetEntity="SoccerSys\AdminBundle\Entity\EnumPosition", inversedBy="players")
-   * @JoinColumn(name="enum_position_id", referencedColumnName="id")
+   * @ORM\ManyToOne(targetEntity="SoccerSys\AdminBundle\Entity\EnumPosition", inversedBy="players")
+   * @ORM\JoinColumn(name="enum_position_id", referencedColumnName="id")
    */
   protected $position;
-}
 
-?>
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Player
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set lastName
+     *
+     * @param string $lastName
+     * @return Player
+     */
+    public function setLastName($lastName)
+    {
+        $this->lastName = $lastName;
+    
+        return $this;
+    }
+
+    /**
+     * Get lastName
+     *
+     * @return string 
+     */
+    public function getLastName()
+    {
+        return $this->lastName;
+    }
+
+    /**
+     * Set number
+     *
+     * @param string $number
+     * @return Player
+     */
+    public function setNumber($number)
+    {
+        $this->number = $number;
+    
+        return $this;
+    }
+
+    /**
+     * Get number
+     *
+     * @return string 
+     */
+    public function getNumber()
+    {
+        return $this->number;
+    }
+
+    /**
+     * Set team
+     *
+     * @param \SoccerSys\FrontendBundle\Entity\Team $team
+     * @return Player
+     */
+    public function setTeam(\SoccerSys\FrontendBundle\Entity\Team $team = null)
+    {
+        $this->team = $team;
+    
+        return $this;
+    }
+
+    /**
+     * Get team
+     *
+     * @return \SoccerSys\FrontendBundle\Entity\Team 
+     */
+    public function getTeam()
+    {
+        return $this->team;
+    }
+
+    /**
+     * Set position
+     *
+     * @param \SoccerSys\AdminBundle\Entity\EnumPosition $position
+     * @return Player
+     */
+    public function setPosition(\SoccerSys\AdminBundle\Entity\EnumPosition $position = null)
+    {
+        $this->position = $position;
+    
+        return $this;
+    }
+
+    /**
+     * Get position
+     *
+     * @return \SoccerSys\AdminBundle\Entity\EnumPosition 
+     */
+    public function getPosition()
+    {
+        return $this->position;
+    }
+}
