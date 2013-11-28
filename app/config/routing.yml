@@ -4,5 +4,5 @@ soccer_sys_frontend:
 
 soccer_sys_admin:
     resource: "@SoccerSysAdminBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /admin
 

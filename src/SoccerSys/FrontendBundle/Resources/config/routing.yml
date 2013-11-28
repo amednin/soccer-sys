@@ -1,3 +1,8 @@
 soccer_sys_frontend_homepage:
-    pattern:  /hello/{name}
+    pattern:  /
     defaults: { _controller: SoccerSysFrontendBundle:Default:index }
+    
+SoccerSysFrontendBundle_fixture:
+    resource: "@SoccerSysFrontendBundle/Resources/config/routing/match.yml"
+    prefix:   /fixture
+

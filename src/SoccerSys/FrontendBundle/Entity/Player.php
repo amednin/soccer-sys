@@ -44,7 +44,23 @@ class Player
    * @ORM\JoinColumn(name="enum_position_id", referencedColumnName="id")
    */
   protected $position;
+  
+  /**
+   * @ORM\Column(name="created_at", type="datetime")
+   */
+  protected $createdAt;
+  
+  /**
+   * @ORM\Column(name="upated_at", type="datetime")
+   */
+  protected $updatedAt;
 
+  
+  public function __construct()
+  {
+    $this->createdAt = new \DateTime("now");
+  }
+  
     /**
      * Get id
      *
@@ -168,5 +184,51 @@ class Player
     public function getPosition()
     {
         return $this->position;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     * @return Player
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     * @return Player
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime 
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
     }
 }

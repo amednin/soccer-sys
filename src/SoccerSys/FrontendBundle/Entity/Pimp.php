@@ -38,13 +38,25 @@ class Pimp
    * @ORM\OneToMany(targetEntity="Team", mappedBy="pimp")
    */
   protected $team;
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->team = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+  
+  /**
+   * @ORM\Column(name="created_at", type="datetime")
+   */
+  protected $createdAt;
+  
+  /**
+   * @ORM\Column(name="upated_at", type="datetime")
+   */
+  protected $updatedAt;
+  
+  /**
+   * Constructor
+   */
+  public function __construct()
+  {
+    $this->team = new \Doctrine\Common\Collections\ArrayCollection();
+    $this->createdAt = new \DateTime("now");
+  }
     
     /**
      * Get id
@@ -156,5 +168,51 @@ class Pimp
     public function getTeam()
     {
         return $this->team;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     * @return Pimp
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     * @return Pimp
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime 
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
     }
 }

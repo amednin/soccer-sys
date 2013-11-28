@@ -37,13 +37,31 @@ class Team
    * @ORM\JoinColumn(name="team_id", referencedColumnName="id")
    */
   protected $pimp;
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->players = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+  
+  /**
+   * @ORM\ManyToOne(targetEntity="Match", inversedBy="teams")
+   * @ORM\JoinColumn(name="match_id", referencedColumnName="id")
+   **/
+  protected $match;
+  
+  /**
+   * @ORM\Column(name="created_at", type="datetime")
+   */
+  protected $createdAt;
+  
+  /**
+   * @ORM\Column(name="upated_at", type="datetime")
+   */
+  protected $updatedAt;
+  
+  /**
+   * Constructor
+   */
+  public function __construct()
+  {
+    $this->players = new \Doctrine\Common\Collections\ArrayCollection();
+    $this->createdAt = new \DateTime("now");
+  }
     
     /**
      * Get id
@@ -155,5 +173,74 @@ class Team
     public function getPimp()
     {
         return $this->pimp;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     * @return Team
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     * @return Team
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime 
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * Set match
+     *
+     * @param \SoccerSys\FrontendBundle\Entity\Match $match
+     * @return Team
+     */
+    public function setMatch(\SoccerSys\FrontendBundle\Entity\Match $match = null)
+    {
+        $this->match = $match;
+    
+        return $this;
+    }
+
+    /**
+     * Get match
+     *
+     * @return \SoccerSys\FrontendBundle\Entity\Match 
+     */
+    public function getMatch()
+    {
+        return $this->match;
     }
 }

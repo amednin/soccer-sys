@@ -1,0 +1,30 @@
+fixture:
+    pattern:  /
+    defaults: { _controller: "SoccerSysFrontendBundle:Match:index" }
+
+fixture_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "SoccerSysFrontendBundle:Match:show" }
+
+fixture_new:
+    pattern:  /new
+    defaults: { _controller: "SoccerSysFrontendBundle:Match:new" }
+
+fixture_create:
+    pattern:  /create
+    defaults: { _controller: "SoccerSysFrontendBundle:Match:create" }
+    requirements: { _method: post }
+
+fixture_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "SoccerSysFrontendBundle:Match:edit" }
+
+fixture_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "SoccerSysFrontendBundle:Match:update" }
+    requirements: { _method: post|put }
+
+fixture_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "SoccerSysFrontendBundle:Match:delete" }
+    requirements: { _method: post|delete }

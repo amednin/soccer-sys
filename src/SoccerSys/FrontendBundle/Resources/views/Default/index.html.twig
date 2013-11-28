@@ -1,1 +1,53 @@
-Hello {{ name }}!
+{% extends 'SoccerSysFrontendBundle::layout.html.twig' %}
+
+{% block f_body %}
+  <table>
+    <thead>
+      <tr>
+        <th>Equipo</th>
+        <th>PJ</th>
+        <th>PG</th>
+        <th>PE</th>
+        <th>PP</th>
+        <th>GF</th>
+        <th>GC</th>
+        <th>Puntos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>San Lorenzo</td>
+        <td>17</td>
+        <td>9</td>
+        <td>4</td>
+        <td>4</td>
+        <td>29</td>
+        <td>17</td>
+        <td>12</td>
+        <td>31</td>
+      </tr>
+      <tr>
+        <td>Newell's Old Boys</td>
+        <td>17</td>
+        <td>8</td>
+        <td>6</td>
+        <td>3</td>
+        <td>24</td>
+        <td>16</td>
+        <td>8</td>
+        <td>30</td>
+      </tr>
+      <tr>
+        <td>Lanús	</td>
+        <td>17</td>
+        <td>8</td>
+        <td>5</td>
+        <td>4</td>
+        <td>28</td>
+        <td>14</td>
+        <td>14</td>
+        <td>29</td>
+      </tr>
+    </tbody>
+  </table>
+{% endblock %}

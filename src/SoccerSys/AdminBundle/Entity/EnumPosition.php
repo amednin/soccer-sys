@@ -36,14 +36,26 @@ class EnumPosition
    * @ORM\OneToMany(targetEntity="SoccerSys\FrontendBundle\Entity\Pimp", mappedBy="position")
    **/
   protected $pimps;
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->players = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->pimps = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+  
+  /**
+   * @ORM\Column(name="created_at", type="datetime")
+   */
+  protected $createdAt;
+  
+  /**
+   * @ORM\Column(name="upated_at", type="datetime")
+   */
+  protected $updatedAt;
+  
+  /**
+   * Constructor
+   */
+  public function __construct()
+  {
+    $this->players = new \Doctrine\Common\Collections\ArrayCollection();
+    $this->pimps = new \Doctrine\Common\Collections\ArrayCollection();
+    $this->createdAt = new \DateTime("now");
+  }
     
     /**
      * Get id
@@ -165,5 +177,51 @@ class EnumPosition
     public function getPimps()
     {
         return $this->pimps;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     * @return EnumPosition
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     * @return EnumPosition
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime 
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
     }
 }
