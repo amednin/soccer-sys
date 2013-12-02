@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="match")
+ * @ORM\Table(name="game")
  */
 class Match 
 {
@@ -33,14 +33,9 @@ class Match
   protected $resultTeam1;    
     
   /**
-   * @ORM\Column(name="match_date", type="date")
+   * @ORM\Column(name="match_date", type="datetime")
    */
   protected $matchDate;
-  
-  /**
-   * @ORM\Column(name="match_time", type="time")
-   */
-  protected $matchTime;
   
   /**
    * @ORM\Column(name="created_at", type="datetime")
@@ -59,6 +54,7 @@ class Match
   {
       $this->teams = new \Doctrine\Common\Collections\ArrayCollection();
       $this->createdAt = new \DateTime("now");
+      $this->updatedAt = new \DateTime('now');
   }
     
     /**
@@ -141,29 +137,6 @@ class Match
     }
 
     /**
-     * Set matchTime
-     *
-     * @param \DateTime $matchTime
-     * @return Match
-     */
-    public function setMatchTime($matchTime)
-    {
-        $this->matchTime = $matchTime;
-    
-        return $this;
-    }
-
-    /**
-     * Get matchTime
-     *
-     * @return \DateTime 
-     */
-    public function getMatchTime()
-    {
-        return $this->matchTime;
-    }
-
-    /**
      * Set createdAt
      *
      * @param \DateTime $createdAt
@@ -240,5 +213,13 @@ class Match
     public function getTeams()
     {
         return $this->teams;
+    }
+    
+    /**
+     * @ORM\PrePersist
+     */
+    public function updateDateBeforeSave()
+    {
+      $this->updatedAt = new \DateTime('now');
     }
 }

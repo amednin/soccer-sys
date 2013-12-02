@@ -56,8 +56,14 @@ class Pimp
   {
     $this->team = new \Doctrine\Common\Collections\ArrayCollection();
     $this->createdAt = new \DateTime("now");
+    $this->updatedAt = new \DateTime('now');
   }
     
+  
+  public function __toString() 
+  {
+    return $this->name;
+  }
     /**
      * Get id
      *

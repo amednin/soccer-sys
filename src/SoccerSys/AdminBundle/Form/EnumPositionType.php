@@ -1,12 +1,12 @@
 <?php
 
-namespace SoccerSys\FrontendBundle\Form;
+namespace SoccerSys\AdminBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class MatchType extends AbstractType
+class EnumPositionType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -15,13 +15,8 @@ class MatchType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('resultTeam2')
-            ->add('resultTeam1')
-            ->add('matchDate')
-            ->add('teams', 'entity', array(
-              'class' => 'SoccerSysFrontendBundle:Team',
-              'property' => 'name',
-              'multiple' => true))
+            ->add('position')
+            ->add('description')
         ;
     }
     
@@ -31,7 +26,7 @@ class MatchType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'SoccerSys\FrontendBundle\Entity\Match'
+            'data_class' => 'SoccerSys\AdminBundle\Entity\EnumPosition'
         ));
     }
 
@@ -40,6 +35,6 @@ class MatchType extends AbstractType
      */
     public function getName()
     {
-        return 'match';
+        return 'soccersys_adminbundle_enumposition';
     }
 }

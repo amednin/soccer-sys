@@ -55,6 +55,12 @@ class EnumPosition
     $this->players = new \Doctrine\Common\Collections\ArrayCollection();
     $this->pimps = new \Doctrine\Common\Collections\ArrayCollection();
     $this->createdAt = new \DateTime("now");
+    $this->updatedAt = new \DateTime('now');
+  }
+  
+  public function __toString() 
+  {
+    return $this->position;
   }
     
     /**
@@ -223,5 +229,13 @@ class EnumPosition
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+    
+    /**
+     * @ORM\PrePersist
+     */
+    public function updateDateBeforeSave()
+    {
+      $this->updatedAt = new \DateTime('now');
     }
 }

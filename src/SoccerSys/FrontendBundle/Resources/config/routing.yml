@@ -6,3 +6,10 @@ SoccerSysFrontendBundle_fixture:
     resource: "@SoccerSysFrontendBundle/Resources/config/routing/match.yml"
     prefix:   /fixture
 
+SoccerSysFrontendBundle_team:
+    resource: "@SoccerSysFrontendBundle/Resources/config/routing/team.yml"
+    prefix:   /team
+    
+SoccerSysFrontendBundle_pimp:
+    resource: "@SoccerSysFrontendBundle/Resources/config/routing/pimp.yml"
+    prefix:   /pimp

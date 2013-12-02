@@ -61,6 +61,7 @@ class Team
   {
     $this->players = new \Doctrine\Common\Collections\ArrayCollection();
     $this->createdAt = new \DateTime("now");
+    $this->updatedAt = new \DateTime('now');
   }
     
     /**
@@ -242,5 +243,13 @@ class Team
     public function getMatch()
     {
         return $this->match;
+    }
+    
+    /**
+     * @ORM\PrePersist
+     */
+    public function updateDateBeforeSave()
+    {
+      $this->updatedAt = new \DateTime('now');
     }
 }

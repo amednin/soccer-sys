@@ -1,3 +1,7 @@
 soccer_sys_admin_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: SoccerSysAdminBundle:Default:index }
+
+SoccerSysAdminBundle_position:
+    resource: "@SoccerSysAdminBundle/Resources/config/routing/enumposition.yml"
+    prefix:   /position

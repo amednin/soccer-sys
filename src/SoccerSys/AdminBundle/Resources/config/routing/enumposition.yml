@@ -1,0 +1,30 @@
+position:
+    pattern:  /
+    defaults: { _controller: "SoccerSysAdminBundle:EnumPosition:index" }
+
+position_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "SoccerSysAdminBundle:EnumPosition:show" }
+
+position_new:
+    pattern:  /new
+    defaults: { _controller: "SoccerSysAdminBundle:EnumPosition:new" }
+
+position_create:
+    pattern:  /create
+    defaults: { _controller: "SoccerSysAdminBundle:EnumPosition:create" }
+    requirements: { _method: post }
+
+position_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "SoccerSysAdminBundle:EnumPosition:edit" }
+
+position_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "SoccerSysAdminBundle:EnumPosition:update" }
+    requirements: { _method: post|put }
+
+position_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "SoccerSysAdminBundle:EnumPosition:delete" }
+    requirements: { _method: post|delete }

@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class MatchType extends AbstractType
+class TeamType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -15,13 +15,9 @@ class MatchType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('resultTeam2')
-            ->add('resultTeam1')
-            ->add('matchDate')
-            ->add('teams', 'entity', array(
-              'class' => 'SoccerSysFrontendBundle:Team',
-              'property' => 'name',
-              'multiple' => true))
+            ->add('name')
+            ->add('description')
+            ->add('pimp')
         ;
     }
     
@@ -31,7 +27,7 @@ class MatchType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'SoccerSys\FrontendBundle\Entity\Match'
+            'data_class' => 'SoccerSys\FrontendBundle\Entity\Team'
         ));
     }
 
@@ -40,6 +36,6 @@ class MatchType extends AbstractType
      */
     public function getName()
     {
-        return 'match';
+        return 'soccersys_frontendbundle_team';
     }
 }

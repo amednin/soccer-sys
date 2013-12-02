@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Match</h1>
+    <h1>Team</h1>
 
     <table class="record_properties">
         <tbody>
@@ -10,16 +10,12 @@
                 <td>{{ entity.id }}</td>
             </tr>
             <tr>
-                <th>Resultteam2</th>
-                <td>{{ entity.resultTeam2 }}</td>
+                <th>Name</th>
+                <td>{{ entity.name }}</td>
             </tr>
             <tr>
-                <th>Resultteam1</th>
-                <td>{{ entity.resultTeam1 }}</td>
-            </tr>
-            <tr>
-                <th>Matchdate</th>
-                <td>{{ entity.matchDate|date('Y-m-d H:i:s') }}</td>
+                <th>Description</th>
+                <td>{{ entity.description }}</td>
             </tr>
             <tr>
                 <th>Createdat</th>
@@ -34,12 +30,12 @@
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('fixture') }}">
+        <a href="{{ path('team') }}">
             Back to the list
         </a>
     </li>
     <li>
-        <a href="{{ path('fixture_edit', { 'id': entity.id }) }}">
+        <a href="{{ path('team_edit', { 'id': entity.id }) }}">
             Edit
         </a>
     </li>

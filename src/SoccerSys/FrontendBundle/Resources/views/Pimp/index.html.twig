@@ -1,15 +1,14 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Match list</h1>
+    <h1>Pimp list</h1>
 
     <table class="records_list">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Resultteam2</th>
-                <th>Resultteam1</th>
-                <th>Matchdate</th>
+                <th>Name</th>
+                <th>Lastname</th>
                 <th>Createdat</th>
                 <th>Updatedat</th>
                 <th>Actions</th>
@@ -18,19 +17,18 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('fixture_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.resultTeam2 }}</td>
-                <td>{{ entity.resultTeam1 }}</td>
-                <td>{% if entity.matchDate %}{{ entity.matchDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td><a href="{{ path('pimp_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.lastName }}</td>
                 <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if entity.updatedAt %}{{ entity.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>
                 <ul>
                     <li>
-                        <a href="{{ path('fixture_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('pimp_show', { 'id': entity.id }) }}">show</a>
                     </li>
                     <li>
-                        <a href="{{ path('fixture_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('pimp_edit', { 'id': entity.id }) }}">edit</a>
                     </li>
                 </ul>
                 </td>
@@ -41,7 +39,7 @@
 
         <ul>
         <li>
-            <a href="{{ path('fixture_new') }}">
+            <a href="{{ path('pimp_new') }}">
                 Create a new entry
             </a>
         </li>

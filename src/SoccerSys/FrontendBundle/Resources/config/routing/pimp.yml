@@ -1,0 +1,30 @@
+pimp:
+    pattern:  /
+    defaults: { _controller: "SoccerSysFrontendBundle:Pimp:index" }
+
+pimp_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "SoccerSysFrontendBundle:Pimp:show" }
+
+pimp_new:
+    pattern:  /new
+    defaults: { _controller: "SoccerSysFrontendBundle:Pimp:new" }
+
+pimp_create:
+    pattern:  /create
+    defaults: { _controller: "SoccerSysFrontendBundle:Pimp:create" }
+    requirements: { _method: post }
+
+pimp_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "SoccerSysFrontendBundle:Pimp:edit" }
+
+pimp_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "SoccerSysFrontendBundle:Pimp:update" }
+    requirements: { _method: post|put }
+
+pimp_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "SoccerSysFrontendBundle:Pimp:delete" }
+    requirements: { _method: post|delete }
